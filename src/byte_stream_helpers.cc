@@ -12,8 +12,11 @@ void read( Reader& reader, uint64_t len, std::string& out )
   out.clear();
 
   while ( reader.bytes_buffered() and out.size() < len ) {
+    // peek: read but not extracting; peek len string from the buffer
     auto view = reader.peek();
 
+    // buffer is not empty and out is within capacity, but view is empty, means
+    // false judgement
     if ( view.empty() ) {
       throw std::runtime_error( "Reader::peek() returned empty string_view" );
     }

@@ -9,7 +9,7 @@ bool Writer::is_closed() const
   // Your code here.
   return {};
 }
-
+ 
 void Writer::push( string data )
 {
   // Your code here.
@@ -55,11 +55,15 @@ string_view Reader::peek() const
 void Reader::pop( uint64_t len )
 {
   // Your code here.
-  (void)len;
+  //(void)len;
+  for(uint64_t i = len; i>0 ;i--){
+    //buffer_.pop_front();
+    }
 }
 
 uint64_t Reader::bytes_buffered() const
 {
   // Your code here.
+  // If buffer is not empty, return True.
   return {};
 }
